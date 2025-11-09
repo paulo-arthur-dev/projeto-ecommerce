@@ -7,7 +7,7 @@
 .carrinho-modal-background {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    /* background: rgba(0,0,0,0.5); */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,7 +26,6 @@
     max-width: 480px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
-
 
 .lista-modal {
     list-style-type: none;

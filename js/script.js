@@ -13,23 +13,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Produtos
     const produtos = [
-        { id: 1, nome: 'Smartphone', categoria: 'eletronicos', preco: 1500 },
-        { id: 2, nome: 'Notebook', categoria: 'eletronicos', preco: 3000 },
-        { id: 3, nome: 'Livro Javascript', categoria: 'livros', preco: 100 },
-        { id: 4, nome: 'Camiseta', categoria: 'vestuario', preco: 50 }
+        { id: 1, nome: 'Smartphone', categoria: 'eletronicos', preco: 1500, img: 'imgs/shop-placeholder.png' },
+        { id: 2, nome: 'Notebook', categoria: 'eletronicos', preco: 3000, img: 'imgs/shop-placeholder.png' },
+        { id: 3, nome: 'Livro', categoria: 'livros', preco: 100, img: 'imgs/shop-placeholder.png' },
+        { id: 4, nome: 'Camiseta', categoria: 'vestuario', preco: 50, img: 'imgs/shop-placeholder.png' }
     ]
 
     //Filtrar produtos e exibir na lista
     function listarProdutos(categoria) {
-        listaProdutos.innerHTML = ''
+        
+        //Reset para a lista de produtos
+        listaProdutos.textContent = ''
 
         produtos
             .filter(produto => categoria === 'todos' ? true : produto.categoria === categoria)
             .forEach(produto => {
                 
-                //Nome e preço do produto
+                //Base do produto
                 const item = document.createElement('li')
-                item.textContent = `${produto.nome} - R$${produto.preco}`
+                
+                //Nome e preço do produto
+                const tituloProduto = document.createElement('h3')
+                tituloProduto.textContent = `${produto.nome} - R$${produto.preco}`
+
+                //Imagem do produto
+                const imgProduto = document.createElement('img')
+                imgProduto.src = produto.img
+                imgProduto.width = 100
 
                 //Botão para adicionar ao carrinho
                 const botaoAdicionar = document.createElement('button')
@@ -38,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     adicionarAoCarrinho(produto)
                 }
 
-                item.appendChild(botaoAdicionar)
-                
+
+                item.append(imgProduto, tituloProduto, botaoAdicionar)
                 listaProdutos.appendChild(item)
 
             })

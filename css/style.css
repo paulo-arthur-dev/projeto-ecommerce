@@ -1,0 +1,33 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.carrinho-modal-background {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.fechado {
+    display: none;
+}
+
+.modal {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 6px;
+    width: 90%;
+    max-width: 480px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.lista-modal {
+    list-style-type: none;
+}

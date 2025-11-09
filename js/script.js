@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const filtroCategoria = document.getElementById('filtroCategoria')
     const totalCarrinho = document.getElementById('totalCarrinho')
 
+    const btnCarrinho = document.getElementById('btnCarrinho')
+    const modalCarrinho = document.getElementById('modalCarrinho')
+    const itensCarrinhoModal = document.getElementById('itensCarrinho')
+    const totalModal = document.getElementById('totalModal')
+    const btnFecharModal = document.getElementById('fecharModal')
+
     //Produtos
     const produtos = [
         { id: 1, nome: 'Smartphone', categoria: 'eletronicos', preco: 1500 },
@@ -54,13 +60,61 @@ document.addEventListener('DOMContentLoaded', () => {
         calcularTotal()
     }
 
-    //Calcula o e exibe o total do carrinho
+    //Calcula e exibe o total do carrinho
     function calcularTotal() {
         const total = carrinho.reduce((acc, produto) => acc + produto.preco, 0)
 
         totalCarrinho.textContent = `R$${total}`
     }
 
+    //Função para abrir o modal do carrinho
+    function abrirModalCarrinho() {
+        itensCarrinhoModal.innerHTML = ''
+
+        if (carrinho.length === 0) {
+            const vazio = document.createElement('p')
+            vazio.textContent = 'Carrinho vazio'
+            itensCarrinhoModal.appendChild(vazio)
+        } else {
+            //Adicionando itens ao carrinho
+            carrinho.forEach((prod, i) => {
+                const prodLi = document.createElement('li')
+                prodLi.textContent = `${prod.nome} - R$${prod.preco}`
+
+                //Botão de remover
+                const btnRemover = document.createElement('button')
+                btnRemover.textContent = 'Remover'
+                btnRemover.onclick = () => {
+                    carrinho.splice(i, 1)
+
+                    abrirModalCarrinho()
+                    calcularTotal()
+                }
+
+                prodLi.appendChild(btnRemover)
+                itensCarrinhoModal.appendChild(prodLi)
+            })
+        }
+
+        // Atualiza o total dentro do modal
+        const totalCarrinhoModal = carrinho.reduce((acc, produto) => acc + produto.preco, 0)
+        totalModal.textContent = `R$${totalCarrinhoModal}`
+
+        //Mostra o modal
+        modalCarrinho.classList.remove('fechado')
+        modalCarrinho.setAttribute('aria-hidden', 'false')
+    }
+
+    //Função para fechar o modal
+    function fecharModalCarrinho() {
+        modalCarrinho.classList.add('fechado')
+        modalCarrinho.setAttribute('aria-hidden', 'true')
+    }
+
+    //Eventos do modal
+    btnCarrinho.addEventListener('click', abrirModalCarrinho)
+    btnFecharModal.addEventListener('click', fecharModalCarrinho)
+    
     
     listarProdutos('todos')
 

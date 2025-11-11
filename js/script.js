@@ -21,25 +21,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Filtrar produtos e exibir na lista
     function listarProdutos(categoria) {
-        
+
         //Reset para a lista de produtos
         listaProdutos.textContent = ''
 
         produtos
             .filter(produto => categoria === 'todos' ? true : produto.categoria === categoria)
             .forEach(produto => {
-                
+
                 //Base do produto
                 const item = document.createElement('li')
-                
-                //Nome e preço do produto
+                item.className = 'item-produto'
+
+                //Nome do produto
                 const tituloProduto = document.createElement('h3')
-                tituloProduto.textContent = `${produto.nome} - R$${produto.preco}`
+                tituloProduto.textContent = `${produto.nome}`
+
+                const precoProduto = document.createElement('p')
+                precoProduto.textContent = `${produto.preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`
 
                 //Imagem do produto
                 const imgProduto = document.createElement('img')
                 imgProduto.src = produto.img
-                imgProduto.width = 100
 
                 //Botão para adicionar ao carrinho
                 const botaoAdicionar = document.createElement('button')
@@ -49,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
 
-                item.append(imgProduto, tituloProduto, botaoAdicionar)
+                item.append(imgProduto, tituloProduto, precoProduto, botaoAdicionar)
                 listaProdutos.appendChild(item)
 
             })
@@ -124,8 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
     //Eventos do modal
     btnCarrinho.addEventListener('click', abrirModalCarrinho)
     btnFecharModal.addEventListener('click', fecharModalCarrinho)
-    
-    
+
+
     listarProdutos('todos')
 
 })

@@ -6,40 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-commerce</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <h1>Produtos</h1>
 
-    <select name="" id="filtroCategoria">
-        <option value="todos">Todos</option>
-        <option value="eletronicos">Eletrônicos</option>
-        <option value="livros">Livros</option>
-        <option value="vestuario">Vestuário</option>
-    </select>
-
-    <ul id="listaProdutos">
-        <!-- 
-        Produto...
-        Produto...
-        Produto... 
-        -->
-    </ul>
+    <section class="container-produtos">
+        <select class="filtro-categoria" id="filtroCategoria">
+            <optgroup>
+                <option value="todos">Todos</option>
+                <option value="eletronicos">Eletrônicos</option>
+                <option value="livros">Livros</option>
+                <option value="vestuario">Vestuário</option>
+            </optgroup>
+        </select>
+        <ul class="produtos" id="listaProdutos">
+            <!--
+            Produto...
+            Produto...
+            Produto...
+            -->
+        </ul>
+    </section>
 
     <h2>Total do Carrinho: <span id="totalCarrinho">R$0</span> </h2>
 
     <button id="btnCarrinho">Carrinho</button>
 
     <!-- Modal para o carrinho -->
-    <div class="carrinho-modal-background fechado" id="modalCarrinho"  aria-hidden="true">
-        
+    <div class="carrinho-modal-background fechado" id="modalCarrinho" aria-hidden="true">
+
         <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloCarrinho">
             <button id="fecharModal">X</button>
 
             <h2 id="tituloCarrinho">Carrinho</h2>
 
             <ul class="lista-modal" id="itensCarrinho">
-            <!-- 
+                <!-- 
             Produto...
             Produto...
             Produto... 

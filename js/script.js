@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const tituloProduto = document.createElement('h3')
                 tituloProduto.textContent = `${produto.nome}`
 
+                //Preço do produto
                 const precoProduto = document.createElement('p')
                 precoProduto.textContent = `${produto.preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`
 

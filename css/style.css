@@ -35,7 +35,7 @@ h1 {
 
 .produtos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(165px, 24%));
     gap: 10px;
 }
 
@@ -45,13 +45,23 @@ h1 {
 
     list-style: none;
     min-width: 170px;
-    /* max-width: 250px; */
+    max-width: 300px;
     padding: 10px;
     margin-bottom: 10px;
     height: fit-content;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.212);
 
-    border: 1px dashed black;
-} 
+    transition: .2s ease-in-out;
+}
+
+.item-produto:hover {
+    transition: .2s ease-in-out;
+    border-color: #2A77F1;
+    transform: scale(1.01);
+}
 
 .item-produto img {
     width: 100%;
@@ -59,6 +69,25 @@ h1 {
 
 .item-produto h3, p {
     text-align: center;
+}
+
+.item-produto button {
+    padding: 10px;
+    margin: 0px 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.1rem;
+    color: #ffffff;
+    background-color: #2A77F1;
+
+    transition: .2s ease-in-out;
+}
+
+.item-produto button:hover {
+    background-color: #4b90ff;
+
+    transition: .2s ease-in-out;
 }
 
 .carrinho-modal-background {
@@ -86,4 +115,12 @@ h1 {
 
 .lista-modal {
     list-style-type: none;
+}
+
+
+
+@media screen and (max-width: 810px) {
+    .produtos {
+        grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    }
 }

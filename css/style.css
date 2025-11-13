@@ -33,6 +33,10 @@ h1 {
     border: 1px solid rgb(194, 189, 189);
 }
 
+.filtro-categoria:focus {
+    border: 1px solid #2A77F1;
+}
+
 .produtos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(165px, 24%));
@@ -88,6 +92,39 @@ h1 {
     background-color: #4b90ff;
 
     transition: .2s ease-in-out;
+}
+
+.total-e-carrinho {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+
+    position: sticky;
+    bottom: 20px;
+    z-index: 9999;
+}
+
+.total-e-carrinho h2 {
+    background-color: #ffffffdc;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+}
+
+.total-e-carrinho button {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    background-color: #ffffffdc;
+    border: 3px #2A77F1;
+    border-style: outset;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    cursor: pointer;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
 }
 
 .carrinho-modal-background {

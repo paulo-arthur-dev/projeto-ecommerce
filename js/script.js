@@ -76,9 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Calcula e exibe o total do carrinho
     function calcularTotal() {
-        const total = carrinho.reduce((acc, produto) => acc + produto.preco, 0)
+        const total = Number(carrinho.reduce((acc, produto) => acc + produto.preco, 0))
 
-        totalCarrinho.textContent = `R$${total}`
+        totalCarrinho.textContent = `${total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`
     }
 
     //Função para abrir o modal do carrinho

@@ -12,7 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=shopping_cart" />
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
 <body>
@@ -37,9 +37,7 @@
 
         <div class="total-e-carrinho">
             <h2>Total: <span id="totalCarrinho">R$ 0</span> </h2>
-            <button id="btnCarrinho"> <span class="material-symbols-outlined">
-                    shopping_cart
-                </span> </button>
+            <button id="btnCarrinho"> <span class="material-symbols-outlined">shopping_cart</span> </button>
         </div>
     </section>
 
@@ -50,9 +48,14 @@
     <div class="carrinho-modal-background fechado" id="modalCarrinho" aria-hidden="true">
 
         <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloCarrinho">
-            <button id="fecharModal">X</button>
+            <div class="div-botao-fechar">
+                
+                <h2 id="tituloCarrinho">Carrinho</h2>
+                
+                <button class="botao-fechar" id="fecharModal"> <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
 
-            <h2 id="tituloCarrinho">Carrinho</h2>
 
             <ul class="lista-modal" id="itensCarrinho">
                 <!-- 

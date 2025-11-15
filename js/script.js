@@ -93,11 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {
             //Adicionando itens ao carrinho
             carrinho.forEach((prod, i) => {
                 const prodLi = document.createElement('li')
-                prodLi.textContent = `${prod.nome} - R$${prod.preco}`
+                prodLi.className = 'produto-modal-lista'
+                const total = Number(prod.preco)
+                prodLi.textContent = `${prod.nome} - ${total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`
 
                 //Botão de remover
                 const btnRemover = document.createElement('button')
-                btnRemover.textContent = 'Remover'
+                btnRemover.className = 'btn-modal-remover'
+                btnRemover.innerHTML = `<span class="material-symbols-outlined">remove</span>`
                 btnRemover.onclick = () => {
                     carrinho.splice(i, 1)
 
@@ -111,8 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Atualiza o total dentro do modal
-        const totalCarrinhoModal = carrinho.reduce((acc, produto) => acc + produto.preco, 0)
-        totalModal.textContent = `R$${totalCarrinhoModal}`
+        const totalCarrinhoModal = Number(carrinho.reduce((acc, produto) => acc + produto.preco, 0))
+        totalModal.textContent = `${totalCarrinhoModal.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`
 
         //Mostra o modal
         modalCarrinho.classList.remove('fechado')

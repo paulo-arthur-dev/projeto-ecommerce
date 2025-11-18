@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const itensCarrinhoModal = document.getElementById('itensCarrinho')
     const totalModal = document.getElementById('totalModal')
     const btnFecharModal = document.getElementById('fecharModal')
-
     
 
     //Filtrar produtos e exibir na lista

@@ -3,6 +3,9 @@ import { produtos } from "./produtos.js"
 document.addEventListener('DOMContentLoaded', () => {
 
     //Elementos
+    const btnTema = document.getElementById('btnTema')
+    const iconeTema = document.getElementById('iconeTema')
+
     const listaProdutos = document.getElementById('listaProdutos')
     const filtroCategoria = document.getElementById('filtroCategoria')
     const totalCarrinho = document.getElementById('totalCarrinho')
@@ -129,7 +132,35 @@ document.addEventListener('DOMContentLoaded', () => {
     btnFecharModal.addEventListener('click', fecharModalCarrinho)
 
 
-    listarProdutos('todos')
+    //Funções para o tema
+    function aplicarTema(tema) {
+        if (tema === 'dark') {
+            document.documentElement.classList.add('dark')
+            iconeTema.textContent = 'light_mode'
+        } else {
+            document.documentElement.classList.remove('dark')
+            iconeTema.textContent = 'dark_mode'
+        }
+    }
+    function carregarTema() {   //localStorage e preferência do sistema
+        const salvar = localStorage.getItem('theme')
+        if (salvar) return salvar
 
+        return matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    }
+
+    //Carregamento do tema e evento para troca
+    aplicarTema(carregarTema())
+    btnTema.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark')
+        const proxTema = isDark ? 'dark' : 'light'
+
+        localStorage.setItem('theme', proxTema)
+
+        aplicarTema(proxTema)
+    })
+
+    
+    listarProdutos('todos')
 })
 

@@ -1,6 +1,6 @@
 # Projeto E-commerce 🛒️
 
-Projeto front-end de um e-commerce focado em organização modular, manipulação de DOM e boas práticas de UI/UX.
+Projeto front-end de um e-commerce focado em organização com módulos js, manipulação de DOM e boas práticas de UI/UX.
 
 ## Objetivo
 
@@ -10,7 +10,7 @@ Criar um protótipo funcional de e-commerce aplicando modularização, interaç�
 
 * **HTML5**: estrutura semântica.
 * **CSS3**: layout responsivo, variáveis de tema, efeitos de blur.
-* **JavaScript (ES6+)**: módulos, gerenciamento de estado local, renderização dinâmica.
+* **JavaScript (ES6+)**: módulo para produtos, gerenciamento de estado local, renderização dinâmica.
 
 ## Funcionalidades
 
